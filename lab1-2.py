@@ -108,6 +108,28 @@ def emulate_dfa(dfa, strn):
   if s_c == s_f:
     return True
   return False
-  
+
+def emulate_nfa(nfa, strn):
+  listaStari = load_states(nfa)
+  listaActiuni = load_actions(nfa)
+  s_c = []
+  for s in listaStari:
+    if 'S' in s:
+      s_c.append(s[0:2])
+  for s in strn:
+    l = []
+    for action in listaActiuni:
+      if s == action[3] and action[0:2] in s_c:
+        l.append(action[5:7])
+    s_c = l  
+
+  for s in listaStari:
+    if 'F' in s:
+      s_f = s[0:2]
+
+  if s_f in s_c:
+    return True
+  return False
+
 strn = input()
 print(emulate_dfa(continutDictionar, strn))
