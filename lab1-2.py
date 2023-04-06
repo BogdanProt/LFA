@@ -1,5 +1,4 @@
 def load_sections(numefis):
-  count = 0
   dict = {}
   try:
     f = open(numefis)
@@ -11,7 +10,6 @@ def load_sections(numefis):
     if linie[0][0] == '[':
       lista = []
       dict[linie[0]] = lista
-      count+=1
     else:
       if linie[0][0] != '#':
         lista.append(linie[0])
