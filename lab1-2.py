@@ -133,3 +133,4 @@ def emulate_nfa(nfa, strn):
 
 strn = input()
 print(emulate_dfa(continutDictionar, strn))
+print(emulate_nfa(continutDictionar, strn))
